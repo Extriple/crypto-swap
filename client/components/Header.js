@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
-import {useEffect, useState} from 'react'
-import {FiArrowRight} from 'react-icons'
-import {AiOutlineDown} from 'react-icons'
-import {HiOutlineDotsVertical} from 'react-icons'
+import { useEffect, useState } from 'react'
+import { FiArrowRight } from 'react-icons'
+import { AiOutlineDown } from 'react-icons'
+import { HiOutlineDotsVertical } from 'react-icons'
 
 const style = {
   wrapper: `p-4 w-screen flex justify-between items-center`,
@@ -21,24 +21,58 @@ const style = {
 }
 
 const Header = () => {
-    const [selectedNav, setSelectedNav] = useState('swap')
+  const [selectedNav, setSelectedNav] = useState('swap')
 
-    return (
-        <div className={style.wrapper}>
-            <div className={style.headerLogo}>Crypto Swap</div>
-            <div className={style.nav}>
-                <div className={style.navItemsContainer}>
-                    <div
-                        onClick={() => setSelectedNav('swap')}
-                        className={`${style.navItem} ${
-                            selectedNav === 'swap' && style.activeNavItem
-                        }`}
-                    >
-                        Swap</div>
-                </div>
+  return (
+    <div className={style.wrapper}>
+      <div className={style.headerLogo}>Crypto Swap</div>
+      <div className={style.nav}>
+        <div className={style.navItemsContainer}>
+          <div
+            onClick={() => setSelectedNav('swap')}
+            className={`${style.navItem} ${
+              selectedNav === 'swap' && style.activeNavItem
+            }`}
+          >
+            Swap
+          </div>
+          <div
+            onClick={() => setSelectedNav('pool')}
+            className={`${style.navItem} ${
+              selectedNav === 'pool' && style.activeNavItem
+            }`}
+          >
+            pool
+          </div>
+          <div
+            onClick={() => setSelectedNav('vote')}
+            className={`${style.navItem} ${
+              selectedNav === 'vote' && style.activeNavItem
+            }`}
+          >
+            vote
+          </div>
+        </div>
+        <div
+          onClick={() => connectWallet()}
+          className={`${style.button} ${style.buttonPadding}`}
+        ></div>
+        <div className={style.buttonIconContainer}>
+          <div className={`${style.button} ${style.padding}`}>
+            <div className={style.buttonIconContainer}></div>
+            <p>Ethereum</p>
+            <div className={style.buttonIconContainer}></div>
+          </div>
+        </div>
+        <div onClick={() => connectWallet()}
+        className={`${style.button} ${style.buttonPadding}`}>
+            <div className={`${style.buttonAccent} ${style.buttonAccentPadding}`}>
+                Connect wallet
             </div>
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Header
