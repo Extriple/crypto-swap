@@ -13,7 +13,6 @@ const Home: NextPage = () => {
       <Header/>
       <SwapMenu/>
       <h2>Transaction history</h2>
-
     </div>
   )
 }
